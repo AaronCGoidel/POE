@@ -17,9 +17,10 @@ public class Words
         BufferedReader in = new BufferedReader(new FileReader(cmuDict));
 
         for(String entry = in.readLine(); entry != null; entry = in.readLine()){
-            String[] tokenizedLine = entry.split(" "); // splits line on tab so that element
+            String[] tokenizedLine = entry.split(" "); // splits line on space
 
-            phoneticDictionary.put(tokenizedLine[0], Arrays.copyOfRange(tokenizedLine, 1, tokenizedLine.length)); // maps phonetic token to phonetic classification
+            // adds entry to map which is the original string mapped to the phonetic string as a list of sounds
+            phoneticDictionary.put(tokenizedLine[0], Arrays.copyOfRange(tokenizedLine, 1, tokenizedLine.length));
 
         }
         in.close();

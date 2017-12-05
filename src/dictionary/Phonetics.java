@@ -13,7 +13,7 @@ public class Phonetics
         BufferedReader in = new BufferedReader(new FileReader(cmuPhones));
 
         for(String entry = in.readLine(); entry != null; entry = in.readLine()){
-            String[] tokenizedLine = entry.split("\t"); // splits line on tab so that element
+            String[] tokenizedLine = entry.split("\t"); // splits line on tab
 
             sounds.put(tokenizedLine[0], SoundClass.valueOf(tokenizedLine[1])); // maps phonetic token to phonetic classification
         }
