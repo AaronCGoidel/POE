@@ -8,30 +8,25 @@ public class Rhyming
     {
         ArrayList<String> matches = new ArrayList();
 
-        String[] inPronunciation = dict.get(word);
+        String[] inPronunciation = dict.get(word); // get pronunciation from phonetic dictionary
         String[] inEnding = Arrays.copyOfRange(inPronunciation,
-                inPronunciation.length - depth, inPronunciation.length);
+                inPronunciation.length - depth, inPronunciation.length); // get the ending of the pronunciation to depth
 
-        //System.out.println(Arrays.toString(inEnding));
 
-        for(String key : dict.keySet()){
+        for(String key : dict.keySet()){ // iterate over dictionary
             String[] checkPronunciation = dict.get(key);
 
             try{
                 String[] checkEnding = Arrays.copyOfRange(checkPronunciation,
-                        checkPronunciation.length - depth, checkPronunciation.length);
-                //System.out.println(Arrays.toString(checkEnding));
+                        checkPronunciation.length - depth, checkPronunciation.length); // get the ending of the current word
 
-                if(Arrays.equals(inEnding, checkEnding)){
-                    //System.out.println(key);
+                if(Arrays.equals(inEnding, checkEnding)){ // if the endings are the same add current word to list of rhymes
                     matches.add(key);
                 }
-            }catch(ArrayIndexOutOfBoundsException oops){
-                //System.out.println("word too short");
+            } catch(ArrayIndexOutOfBoundsException oops){ // if word is shorter than depth
             }
         }
 
-        //System.out.println(matches.size());
         return matches;
     }
 
