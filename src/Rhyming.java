@@ -4,7 +4,14 @@ import java.util.Map;
 
 public class Rhyming
 {
-    public static ArrayList<String> findRhymes(String word, int depth, Map<String, String[]> dict)
+    Map<String, String[]> dict;
+
+    public Rhyming(Map<String, String[]> dict)
+    {
+        this.dict = dict;
+    }
+
+    private ArrayList<String> findRhymes(String word, int depth)
     {
         ArrayList<String> matches = new ArrayList();
 
@@ -30,9 +37,9 @@ public class Rhyming
         return matches;
     }
 
-    public static boolean isRhyme(String base, String compare, int depth, Map<String, String[]> dict)
+    public boolean isRhyme(String base, String compare, int depth)
     {
-        ArrayList rhymes = findRhymes(base, depth, dict);
+        ArrayList rhymes = findRhymes(base, depth);
         return rhymes.contains(compare);
     }
 }
