@@ -2,13 +2,13 @@ package components.rhyming.dictionary;
 
 public enum RhymePattern
 {
-    COUPLETS("aabb"),
-    ALTERNATE("abab"),
-    ENCLOSED("abba"),
+    COUPLET("aabbccddeeffgg"),
+    ALTERNATE("ababcdcdefefghgh"),
+    ENCLOSED("abbacddceffe"),
     SONNET("ababcdcdefefgg"),
-    NONE("----");
+    NONE("--------");
 
-    private String pattern;
+    public String pattern;
 
     RhymePattern(String s)
     {
