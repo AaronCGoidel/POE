@@ -1,4 +1,4 @@
-package dictionary;
+package components.rhyming.dictionary;
 
 import java.io.*;
 import java.util.HashMap;
@@ -15,7 +15,8 @@ public class Phonetics
         for(String entry = in.readLine(); entry != null; entry = in.readLine()){
             String[] tokenizedLine = entry.split("\t"); // splits line on tab
 
-            sounds.put(tokenizedLine[0], SoundClass.valueOf(tokenizedLine[1])); // maps phonetic token to phonetic classification
+            // maps phonetic token to phonetic classification
+            sounds.put(tokenizedLine[0], SoundClass.valueOf(tokenizedLine[1].toUpperCase()));
         }
 
         in.close();

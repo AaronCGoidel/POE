@@ -1,3 +1,5 @@
+package components.rhyming.dictionary;
+
 public enum RhymeScheme
 {
     COUPLETS("aabb"),

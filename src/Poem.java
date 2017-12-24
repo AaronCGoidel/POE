@@ -1,3 +1,5 @@
+import components.rhyming.dictionary.RhymeScheme;
+
 public class Poem
 {
     String rawText;
