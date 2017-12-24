@@ -1,6 +1,6 @@
 package components.rhyming.dictionary;
 
-public enum RhymeScheme
+public enum RhymePattern
 {
     COUPLETS("aabb"),
     ALTERNATE("abab"),
@@ -10,7 +10,7 @@ public enum RhymeScheme
 
     private String pattern;
 
-    RhymeScheme(String s)
+    RhymePattern(String s)
     {
         this.pattern = s;
     }
