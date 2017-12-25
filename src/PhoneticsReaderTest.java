@@ -1,9 +1,12 @@
+import components.parsing.PoemReader;
 import components.rhyming.Rhymer;
 import components.rhyming.dictionary.Phonetics;
 import components.rhyming.dictionary.Words;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -31,12 +34,12 @@ public class PhoneticsReaderTest
 
         Scanner in = new Scanner(System.in);
 
-        System.out.println("Enter Word One: ");
-        String wordOne = in.next();
-        System.out.println("Enter Word Two: ");
-        String wordTwo = in.next();
-        System.out.println(rhymer.isRhyme(wordOne, wordTwo));
+//        System.out.println("Enter Word One: ");
+//        String wordOne = in.next();
+//        System.out.println("Enter Word Two: ");
+//        String wordTwo = in.next();
+//        System.out.println(rhymer.isRhyme(wordOne, wordTwo));
 
-
+        System.out.println(Arrays.toString(PoemReader.readPoem(new FileReader("src/s55.txt"))));
     }
 }

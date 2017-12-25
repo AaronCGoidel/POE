@@ -24,9 +24,10 @@ public class tester
 
         Rhymer rhymer = new Rhymer(words, phonics);
 
-        String[][] fakePoem = {{"said"}, {"dead"}, {"doubt"},
-                {"out"}, {"hand"}, {"land"}, {"hide"}, {"glide"},
-                {"charge"}, {"barge"}, {"free"}, {"me"}, {"rhyme"}, {"time"}};
+        String[][] fakePoem = {{"height"}, {"sight"}, {"hello"}};
+//        String[][] fakePoem = {{"monuments"}, {"rhyme"}, {"contents"},
+//                {"time"}, {"overturn"}, {"masonry"}, {"burn"}, {"memory"},
+//                {"enmity"}, {"room"}, {"posterity"}, {"doom"}, {"arise"}, {"eyes"}};
 
         RhymeScheme scheme = new RhymeScheme(fakePoem, rhymer);
 
@@ -37,7 +38,7 @@ public class tester
         RhymePattern best = RhymePattern.NONE;
         int min = 100000;
         for(RhymePattern rhymePattern : RhymePattern.values()){
-            int d = Utils.levenshteinDistance(rscheme, rhymePattern.pattern);
+            int d = Utils.levenshteinDistance(rscheme, rhymePattern.pattern.substring(0, rscheme.length()));
             if(d < min){
                 min = d;
                 best = rhymePattern;
