@@ -1,8 +1,5 @@
-import components.Utils;
-import components.rhyming.RhymeScheme;
 import components.rhyming.Rhymer;
 import components.rhyming.dictionary.Phonetics;
-import components.rhyming.dictionary.RhymePattern;
 import components.rhyming.dictionary.Words;
 
 import java.io.File;
@@ -24,26 +21,8 @@ public class tester
 
         Rhymer rhymer = new Rhymer(words, phonics);
 
-        String[][] fakePoem = {{"height"}, {"sight"}, {"hello"}};
-//        String[][] fakePoem = {{"monuments"}, {"rhyme"}, {"contents"},
-//                {"time"}, {"overturn"}, {"masonry"}, {"burn"}, {"memory"},
-//                {"enmity"}, {"room"}, {"posterity"}, {"doom"}, {"arise"}, {"eyes"}};
+        Poem test = new Poem("src/s55.txt", rhymer);
 
-        RhymeScheme scheme = new RhymeScheme(fakePoem, rhymer);
-
-        String rscheme = scheme.getScheme();
-
-        int[] distances = new int[5];
-
-        RhymePattern best = RhymePattern.NONE;
-        int min = 100000;
-        for(RhymePattern rhymePattern : RhymePattern.values()){
-            int d = Utils.levenshteinDistance(rscheme, rhymePattern.pattern.substring(0, rscheme.length()));
-            if(d < min){
-                min = d;
-                best = rhymePattern;
-            }
-        }
-        System.out.println(best);
+        System.out.println(test.getRhymeScheme());
     }
 }

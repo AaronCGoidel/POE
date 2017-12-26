@@ -1,5 +1,8 @@
 package components.rhyming;
 
+import components.Utils;
+import components.rhyming.dictionary.RhymePattern;
+
 public class RhymeScheme
 {
     private String[][] text;
@@ -16,7 +19,7 @@ public class RhymeScheme
         this.rhymer = rhymer;
     }
 
-    public String getScheme()
+    public String calculatePattern()
     {
         char currentSymbol = 96;
         for(int line = 0; line < text.length; line++){
@@ -26,9 +29,7 @@ public class RhymeScheme
                     String[] baseLine = text[line];
                     String[] nextLine = text[next];
 
-                    if(baseLine.equals("")){
-                        pattern.setCharAt(next, ' ');
-                    }else if(rhymer.isRhyme(baseLine[baseLine.length - 1], nextLine[nextLine.length - 1])){
+                    if(rhymer.isRhyme(baseLine[baseLine.length - 1], nextLine[nextLine.length - 1])){
                         if(!found){
                             found = true;
                             currentSymbol++;
@@ -40,5 +41,21 @@ public class RhymeScheme
             }
         }
         return pattern.toString();
+    }
+
+    public RhymePattern estimateScheme()
+    {
+        String actualPattern = calculatePattern();
+
+        RhymePattern best = RhymePattern.NONE;
+        int min = Integer.MAX_VALUE;
+        for(RhymePattern rhymePattern : RhymePattern.values()){
+            int d = Utils.levenshteinDistance(actualPattern, rhymePattern.pattern);
+            if(d < min){
+                min = d;
+                best = rhymePattern;
+            }
+        }
+        return best;
     }
 }

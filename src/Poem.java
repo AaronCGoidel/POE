@@ -1,4 +1,6 @@
 import components.parsing.PoemReader;
+import components.rhyming.RhymeScheme;
+import components.rhyming.Rhymer;
 import components.rhyming.dictionary.RhymePattern;
 
 import java.io.FileNotFoundException;
@@ -12,8 +14,9 @@ public class Poem
     private int numStanza;
     private RhymePattern rhymeScheme;
     private Stresses meter;
+    RhymeScheme rhymeFinder;
 
-    public Poem(String poemPath)
+    public Poem(String poemPath, Rhymer rhymer)
     {
         // read in poem
         try{
@@ -22,8 +25,12 @@ public class Poem
             System.out.println("Poem Not Found");
         }
         this.cleanText = PoemReader.cleanRaw(rawText); // clean and tokenize into words
+
+        RhymeScheme rhymeFinder = new RhymeScheme(cleanText, rhymer);
+
         this.numLines = countLines();
         this.numStanza = countStanzas();
+        this.rhymeScheme = rhymeFinder.estimateScheme();
     }
 
     /**

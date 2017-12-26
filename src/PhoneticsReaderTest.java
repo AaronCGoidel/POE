@@ -37,7 +37,5 @@ public class PhoneticsReaderTest
 //        String wordTwo = in.next();
 //        System.out.println(rhymer.isRhyme(wordOne, wordTwo));
 
-        Poem test = new Poem("src/s55.txt");
-        System.out.println(test.getNumLines());
     }
 }
