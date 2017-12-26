@@ -33,14 +33,22 @@ public class Rhymer
         String[] pronunciationOne = dict.get(base);
         String[] pronunciationTwo = dict.get(compare);
 
-        // shorten depth of search for small words
+        /* shorten depth of search for small words */
+        // word one
         int vowelCount = 0;
         for(String sound : pronunciationOne){ // iterate over sounds
             if(phonetics.get(sound.length() < 2 ? sound : sound.substring(0, 2)) == SoundClass.VOWEL){
                 vowelCount++; // count the number of vowels found
             }
         }
-        if(vowelCount < 3){
+        // same thing for word two
+        for(String sound : pronunciationTwo){
+            if(phonetics.get(sound.length() < 2 ? sound : sound.substring(0, 2)) == SoundClass.VOWEL){
+                vowelCount++;
+            }
+        }
+
+        if(vowelCount <= 3){
             depth = 2;
         }
         for(int i = pronunciationOne.length - 1, j = pronunciationTwo.length - 1;
