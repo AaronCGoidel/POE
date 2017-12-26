@@ -30,7 +30,7 @@ public class PoemReader
         List<String[]> clean = new ArrayList<>();
         for(String line : rawText){
             if(!line.equals("")){
-                clean.add(line.replaceAll("[.,;:]", "").split(" "));
+                clean.add(line.replaceAll("[.,;:?!]", "").split(" "));
             }
         }
 
