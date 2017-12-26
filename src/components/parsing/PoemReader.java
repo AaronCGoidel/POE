@@ -25,13 +25,13 @@ public class PoemReader
         return text.toArray(new String[0]);
     }
 
-    public static String[] cleanRaw(String[] rawText)
+    public static String[][] cleanRaw(String[] rawText)
     {
-        String[] clean = new String[rawText.length];
-        for(int i = 0; i < clean.length; i++){
-            clean[i] = rawText[i].replaceAll(".,;:", "");
+        List<String[]> clean = new ArrayList<>();
+        for(String line : rawText){
+            clean.add(line.replaceAll("[.,;:]", "").split(" "));
         }
 
-        return clean;
+        return clean.toArray(new String[0][0]);
     }
 }
