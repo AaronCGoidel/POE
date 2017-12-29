@@ -35,7 +35,8 @@ public class BagWriter
                 in = new FileReader(file);
                 words = PoemReader.cleanRaw(PoemReader.readPoem(in));
                 for(String[] line : words){
-                    for(String str : line){
+                    for(int i = 0; i < line.length; i++){
+                        String str = line[i].toLowerCase();
                         if(!list.contains(str) && !stops.contains(str)){
                             list.add(str);
                         }
