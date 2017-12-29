@@ -23,6 +23,11 @@ public class BagWriter
         }
         s.close();
 
+        ArrayList<String> stops = new ArrayList<>();
+        s = new Scanner(new File("src/components/theme/files/stopwords.txt"));
+        while(s.hasNext()){
+            stops.add(s.next());
+        }
 
         String[][] words;
         for(File file : listOfFiles){
@@ -31,7 +36,7 @@ public class BagWriter
                 words = PoemReader.cleanRaw(PoemReader.readPoem(in));
                 for(String[] line : words){
                     for(String str : line){
-                        if(!list.contains(str)){
+                        if(!list.contains(str) && !stops.contains(str)){
                             list.add(str);
                         }
                     }
