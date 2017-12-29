@@ -1,6 +1,6 @@
 package components.rhyming.dictionary;
 
-public enum SoundClass
+public enum Phonemes
 {
     VOWEL,
     SEMIVOWEL,

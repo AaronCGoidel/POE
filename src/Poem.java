@@ -1,7 +1,7 @@
 import components.parsing.PoemReader;
 import components.rhyming.RhymeScheme;
 import components.rhyming.Rhymer;
-import components.rhyming.dictionary.RhymePattern;
+import components.rhyming.dictionary.RhymeSchemes;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -12,7 +12,7 @@ public class Poem
     private String[][] cleanText;
     private int numLines;
     private int numStanza;
-    private RhymePattern rhymeScheme;
+    private RhymeSchemes rhymeScheme;
     private Stresses meter;
     RhymeScheme rhymeFinder;
 
@@ -85,7 +85,7 @@ public class Poem
         return numStanza;
     }
 
-    public RhymePattern getRhymeScheme()
+    public RhymeSchemes getRhymeScheme()
     {
         return rhymeScheme;
     }

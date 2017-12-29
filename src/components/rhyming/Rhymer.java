@@ -1,49 +1,45 @@
 package components.rhyming;
 
-import components.rhyming.dictionary.SoundClass;
-
-import java.util.Map;
+import components.rhyming.dictionary.Phonemes;
+import components.rhyming.dictionary.PhoneticDictionary;
 
 public class Rhymer
 {
-    Map<String, String[]> dict;
-    Map<String, SoundClass> phonetics;
-    int depth;
+    private PhoneticDictionary dictionary;
+    private int depth;
 
     /*
     Constructor with default depth
      */
-    public Rhymer(Map<String, String[]> dict, Map<String, SoundClass> phonetics)
+    public Rhymer(PhoneticDictionary dictionary)
     {
-        this.dict = dict;
-        this.phonetics = phonetics;
+        this.dictionary = dictionary;
         this.depth = 3;
     }
 
-    public Rhymer(Map<String, String[]> dict, Map<String, SoundClass> phonetics, int depth)
+    public Rhymer(PhoneticDictionary dictionary, int depth)
     {
-        this.dict = dict;
-        this.phonetics = phonetics;
+        this.dictionary = dictionary;
         this.depth = depth;
     }
 
     public boolean isRhyme(String base, String compare)
     {
         // get phonetic breakdowns from components.rhyming.dictionary
-        String[] pronunciationOne = dict.get(base);
-        String[] pronunciationTwo = dict.get(compare);
+        String[] pronunciationOne = dictionary.words.get(base);
+        String[] pronunciationTwo = dictionary.words.get(compare);
 
         /* shorten depth of search for small words */
         // word one
         int vowelCount = 0;
         for(String sound : pronunciationOne){ // iterate over sounds
-            if(phonetics.get(sound.length() < 2 ? sound : sound.substring(0, 2)) == SoundClass.VOWEL){
+            if(dictionary.phonemes.get(sound.length() < 2 ? sound : sound.substring(0, 2)) == Phonemes.VOWEL){
                 vowelCount++; // count the number of vowels found
             }
         }
         // same thing for word two
         for(String sound : pronunciationTwo){
-            if(phonetics.get(sound.length() < 2 ? sound : sound.substring(0, 2)) == SoundClass.VOWEL){
+            if(dictionary.phonemes.get(sound.length() < 2 ? sound : sound.substring(0, 2)) == Phonemes.VOWEL){
                 vowelCount++;
             }
         }

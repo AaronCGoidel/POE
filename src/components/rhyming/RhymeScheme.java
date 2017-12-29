@@ -1,7 +1,7 @@
 package components.rhyming;
 
 import components.Utils;
-import components.rhyming.dictionary.RhymePattern;
+import components.rhyming.dictionary.RhymeSchemes;
 
 public class RhymeScheme
 {
@@ -52,15 +52,15 @@ public class RhymeScheme
      * Returns the best estimate of the type of rhyme scheme based on the pattern of the rhyming lines
      * Takes the Levenshtein distance between each rhyme scheme and the pattern from the poem
      * Selects the closest match as the form of the poem
-     * @return RhymePattern The closest form to the pattern found in the poem
+     * @return RhymeSchemes The closest form to the pattern found in the poem
      */
-    public RhymePattern estimateScheme()
+    public RhymeSchemes estimateScheme()
     {
         String actualPattern = calculatePattern();
 
-        RhymePattern best = RhymePattern.NONE; // defaults to no scheme
+        RhymeSchemes best = RhymeSchemes.NONE; // defaults to no scheme
         int min = Integer.MAX_VALUE; // set the initial minimum distance to something absurdly high
-        for(RhymePattern rhymePattern : RhymePattern.values()){ // iterate through the rhyme schemes
+        for(RhymeSchemes rhymePattern : RhymeSchemes.values()){ // iterate through the rhyme schemes
             // calculate difference between actual pattern from the poem and the pattern of the rhyme scheme
             int d = Utils.levenshteinDistance(actualPattern, rhymePattern.pattern);
             if(d < min){ // check if this distance is closer than the previous best
