@@ -26,8 +26,11 @@ public class Rhymer
     public boolean isRhyme(String base, String compare)
     {
         // get phonetic breakdowns from components.rhyming.dictionary
-        String[] pronunciationOne = dictionary.words.get(base);
-        String[] pronunciationTwo = dictionary.words.get(compare);
+        String[] pronunciationOne = dictionary.words.get(base.toLowerCase());
+        String[] pronunciationTwo = dictionary.words.get(compare.toLowerCase());
+        if(pronunciationTwo==null){
+            System.out.println(compare);
+        }
 
         /* shorten depth of search for small words */
         // word one

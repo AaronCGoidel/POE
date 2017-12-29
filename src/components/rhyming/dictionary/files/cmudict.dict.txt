@@ -107740,6 +107740,7 @@ scratches(2) S K R AE1 CH IH0 Z
 scratching S K R AE1 CH IH0 NG
 scratchy S K R AE1 CH IY0
 scrawl S K R AO1 L
+scrawls S K R AO1 L Z
 scrawled S K R AO1 L D
 scrawny S K R AO1 N IY0
 scream S K R IY1 M

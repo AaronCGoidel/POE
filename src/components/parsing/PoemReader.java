@@ -36,7 +36,7 @@ public class PoemReader
         List<String[]> clean = new ArrayList<>();
         for(String line : rawText){
             if(!line.equals("")){ // don't include blank lines
-                clean.add(line.replaceAll("[.,;:?!]", "").split(" ")); // filter out punctuation
+                clean.add(line.replaceAll("[.,-;:?!]", "").split(" ")); // filter out punctuation
             }
         }
 

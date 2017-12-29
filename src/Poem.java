@@ -5,13 +5,14 @@ import components.rhyming.dictionary.RhymeSchemes;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Arrays;
 
 public class Poem
 {
     private String[] rawText;
     private String[][] cleanText;
     private int numLines;
-    private int numStanza;
+    private int numStanzas;
     private RhymeSchemes rhymeScheme;
     private Stresses meter;
     RhymeScheme rhymeFinder;
@@ -29,7 +30,7 @@ public class Poem
         RhymeScheme rhymeFinder = new RhymeScheme(cleanText, rhymer);
 
         this.numLines = countLines();
-        this.numStanza = countStanzas();
+        this.numStanzas = countStanzas();
         this.rhymeScheme = rhymeFinder.estimateScheme();
     }
 
@@ -65,6 +66,18 @@ public class Poem
         return count;
     }
 
+    @Override
+    public String toString()
+    {
+        return "Poem{\n" +
+                "rawText=" + Arrays.toString(rawText) +
+                ", \nnumLines=" + numLines +
+                ", \nnumStanzas=" + numStanzas +
+                ", \nrhymeScheme=" + rhymeScheme +
+                ", \nmeter=" + meter +
+                '}';
+    }
+
     public String[] getRawText()
     {
         return rawText;
@@ -80,9 +93,9 @@ public class Poem
         return numLines;
     }
 
-    public int getNumStanza()
+    public int getNumStanzas()
     {
-        return numStanza;
+        return numStanzas;
     }
 
     public RhymeSchemes getRhymeScheme()
