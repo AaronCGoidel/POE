@@ -45,6 +45,7 @@ public class BagWriter
             }
         }
 
+        //TODO: ignore word endings (i.e. -ing, -ed)
         BufferedWriter writer = new BufferedWriter(new FileWriter(
                 "src/components/theme/files/bag_of_words.txt"));
         for(String word : list){

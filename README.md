@@ -19,5 +19,6 @@ Tech
 ### Todos
 
  - Detect thematic components
- - Analyze meter  
+ - Analyze meter
+ - Determine themes
  - More as I think about what I want to do
