@@ -2,6 +2,7 @@
 'cause K AH0 Z
 'course K AO1 R S
 'cuse K Y UW1 Z
+'d D
 'em AH0 M
 'frisco F R IH1 S K OW0
 'gain G EH1 N
@@ -9,7 +10,9 @@
 'm AH0 M
 'n AH0 N
 'round R AW1 N D
+rs ER0 Z
 's EH1 S
+'st S T
 'til T IH1 L
 'tis T IH1 Z
 'twas T W AH1 Z
@@ -261,6 +264,7 @@ abo AA1 B OW0
 abo's AA1 B OW0 Z
 aboard AH0 B AO1 R D
 abode AH0 B OW1 D
+abodes AH0 B OW1 D Z
 abohalima AE0 B AH0 HH AH0 L IY1 M AH0
 abolish AH0 B AA1 L IH0 SH
 abolished AH0 B AA1 L IH0 SH T
@@ -86407,6 +86411,7 @@ offenders AH0 F EH1 N D ER0 Z
 offending AH0 F EH1 N D IH0 NG
 offends AH0 F EH1 N D Z
 offense AH0 F EH1 N S
+offence AH0 F EH1 N S
 offenses AH0 F EH1 N S IH0 Z
 offensive AH0 F EH1 N S IH0 V
 offensively AH0 F EH1 N S IH0 V L IY0

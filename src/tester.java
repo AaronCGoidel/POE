@@ -13,12 +13,9 @@ public class tester
 
         PhoneticDictionary dictionary = new PhoneticDictionary(cmuSoundList, cmuDict);
         Rhymer rhymer = new Rhymer(dictionary);
-        Poem sonnet55 = new Poem("src/s55.txt", rhymer);
+        Poem sonnet55 = new Poem("src/texts/s55.txt", rhymer);
 
         System.out.println(sonnet55 + "\n\n");
 
-        Poem elegy = new Poem("src/popestanzas.txt", rhymer);
-
-        System.out.println(elegy);
     }
 }

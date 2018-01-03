@@ -1,6 +1,5 @@
 package components.rhyming;
 
-import components.parsing.PoemReader;
 import components.rhyming.dictionary.Phonemes;
 import components.rhyming.dictionary.PhoneticDictionary;
 
@@ -30,10 +29,12 @@ public class Rhymer
         String[] pronunciationOne = dictionary.words.get(base.toLowerCase());
         String[] pronunciationTwo = dictionary.words.get(compare.toLowerCase());
         if(pronunciationOne == null){
-            pronunciationOne = dictionary.words.get(PoemReader.vowelReplace(base.toLowerCase()));
+            System.out.println(base);
+            return false;
         }
         if(pronunciationTwo == null){
-            pronunciationTwo = dictionary.words.get(PoemReader.vowelReplace(compare.toLowerCase()));
+            System.out.println(compare);
+            return false;
         }
 
         /* shorten depth of search for small words */
