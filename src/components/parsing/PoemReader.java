@@ -31,13 +31,15 @@ public class PoemReader
      * @param rawText String[] the text taken in by readPoem()
      * @return String[][] An array which represents each line made up of an array of each word in the line
      */
-    public static String[][] cleanRaw(String[] rawText)
+    public static String[][] cleanRaw(String[] rawText, boolean split)
     {
         List<String[]> clean = new ArrayList<>();
         for(String line : rawText){
             if(!line.equals("")){ // don't include blank lines
-                String spaced = line.replaceAll("[-']", " ");
-                String[] current = spaced.replaceAll("[.,()-;:?!\"]", "").split(" "); // filter out punctuation
+                if(split){
+                    line = line.replaceAll("[-']", " ");
+                }
+                String[] current = line.replaceAll("[.,()-;:?!\"{}]", "").split(" "); // filter out punctuation
 
                 clean.add(current);
             }

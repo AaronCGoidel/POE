@@ -10,7 +10,7 @@ public class BagWriter
 {
     public static void main(String[] args) throws IOException
     {
-        File folder = new File("src/texts/");
+        File folder = new File("src/texts/poems/");
         File[] listOfFiles = folder.listFiles();
 
         FileReader in;
@@ -31,9 +31,9 @@ public class BagWriter
 
         String[][] words;
         for(File file : listOfFiles){
-            if(file.isFile()){
+            if(file.isFile() && file.getName().substring(file.getName().lastIndexOf(".") + 1).equals("txt")){
                 in = new FileReader(file);
-                words = PoemReader.cleanRaw(PoemReader.readPoem(in));
+                words = PoemReader.cleanRaw(PoemReader.readPoem(in), false);
                 for(String[] line : words){
                     for(int i = 0; i < line.length; i++){
                         String str = line[i].toLowerCase();
@@ -42,6 +42,7 @@ public class BagWriter
                         }
                     }
                 }
+                System.out.println("Wrote content from " + file.getName());
             }
         }
 

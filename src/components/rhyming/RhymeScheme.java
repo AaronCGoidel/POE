@@ -57,6 +57,7 @@ public class RhymeScheme
     public RhymeSchemes estimateScheme()
     {
         String actualPattern = calculatePattern();
+        //System.out.println(actualPattern);
 
         RhymeSchemes best = RhymeSchemes.NONE; // defaults to no scheme
         int min = Integer.MAX_VALUE; // set the initial minimum distance to something absurdly high

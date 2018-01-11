@@ -29,11 +29,9 @@ public class Rhymer
         String[] pronunciationOne = dictionary.words.get(base.toLowerCase());
         String[] pronunciationTwo = dictionary.words.get(compare.toLowerCase());
         if(pronunciationOne == null){
-            System.out.println(base);
             return false;
         }
         if(pronunciationTwo == null){
-            System.out.println(compare);
             return false;
         }
 

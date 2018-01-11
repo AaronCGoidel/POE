@@ -25,7 +25,7 @@ public class Poem
         } catch(FileNotFoundException oops){
             System.out.println("Poem Not Found");
         }
-        this.cleanText = PoemReader.cleanRaw(rawText); // clean and tokenize into words
+        this.cleanText = PoemReader.cleanRaw(rawText, true); // clean and tokenize into words
 
         RhymeScheme rhymeFinder = new RhymeScheme(cleanText, rhymer);
 
