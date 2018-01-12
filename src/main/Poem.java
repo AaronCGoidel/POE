@@ -1,3 +1,5 @@
+package main;
+
 import components.parsing.PoemReader;
 import components.rhyming.RhymeScheme;
 import components.rhyming.Rhymer;
@@ -14,7 +16,6 @@ public class Poem
     private int numLines;
     private int numStanzas;
     private RhymeSchemes rhymeScheme;
-    private Stresses meter;
     RhymeScheme rhymeFinder;
 
     public Poem(String poemPath, Rhymer rhymer)
@@ -23,15 +24,15 @@ public class Poem
         try{
             this.rawText = PoemReader.readPoem(new FileReader(poemPath));
         } catch(FileNotFoundException oops){
-            System.out.println("Poem Not Found");
+            System.out.println("main.Poem Not Found");
         }
         this.cleanText = PoemReader.cleanRaw(rawText, true); // clean and tokenize into words
 
-        RhymeScheme rhymeFinder = new RhymeScheme(cleanText, rhymer);
-
-        this.numLines = countLines();
-        this.numStanzas = countStanzas();
-        this.rhymeScheme = rhymeFinder.estimateScheme();
+//        RhymeScheme rhymeFinder = new RhymeScheme(this, rhymer);
+//
+//        this.numLines = countLines();
+//        this.numStanzas = countStanzas();
+//        this.rhymeScheme = rhymeFinder.estimateScheme();
     }
 
     /**
@@ -69,12 +70,12 @@ public class Poem
     @Override
     public String toString()
     {
-        return "Poem{\n" +
+        return "main.Poem{\n" +
                 "rawText=" + Arrays.toString(rawText) +
+                "\ncleanText=" + Arrays.deepToString(cleanText) +
                 ", \nnumLines=" + numLines +
                 ", \nnumStanzas=" + numStanzas +
                 ", \nrhymeScheme=" + rhymeScheme +
-                ", \nmeter=" + meter +
                 '}';
     }
 
@@ -101,10 +102,5 @@ public class Poem
     public RhymeSchemes getRhymeScheme()
     {
         return rhymeScheme;
-    }
-
-    public Stresses getMeter()
-    {
-        return meter;
     }
 }

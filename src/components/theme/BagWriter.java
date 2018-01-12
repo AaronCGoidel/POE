@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class BagWriter
 {
-    public static void main(String[] args) throws IOException
+    public static void writeToBag() throws IOException
     {
         File folder = new File("src/texts/poems/");
         File[] listOfFiles = folder.listFiles();

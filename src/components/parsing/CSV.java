@@ -20,7 +20,7 @@ public class CSV
             while((nextRecord = csvReader.readNext()) != null){
                 count++;
 
-                System.out.println(String.format("Poem #%d", count));
+                System.out.println(String.format("main.Poem #%d", count));
                 System.out.println("Author : " + nextRecord[0]);
                 System.out.println("Title : " + nextRecord[2]);
                 System.out.println("Era : " + nextRecord[3]);
@@ -33,7 +33,7 @@ public class CSV
 //                writer.println(nextRecord[0]);
 //                writer.println(nextRecord[2]);
 //                writer.println(nextRecord[3]);
-//                writer.println(nextRecord[4]);
+                //writer.println(nextRecord[4]);
                 writer.println(nextRecord[1]);
                 writer.close();
             }
