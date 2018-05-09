@@ -28,11 +28,11 @@ public class Poem
         }
         this.cleanText = PoemReader.cleanRaw(rawText, true); // clean and tokenize into words
 
-//        RhymeScheme rhymeFinder = new RhymeScheme(this, rhymer);
-//
-//        this.numLines = countLines();
-//        this.numStanzas = countStanzas();
-//        this.rhymeScheme = rhymeFinder.estimateScheme();
+        RhymeScheme rhymeFinder = new RhymeScheme(this, rhymer);
+
+        this.numLines = countLines();
+        this.numStanzas = countStanzas();
+        this.rhymeScheme = rhymeFinder.estimateScheme();
     }
 
     /**
