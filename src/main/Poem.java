@@ -7,7 +7,9 @@ import components.rhyming.dictionary.RhymeSchemes;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Poem
 {
@@ -15,6 +17,7 @@ public class Poem
     private String[][] cleanText;
     private int numLines;
     private int numStanzas;
+    private String theme;
     private RhymeSchemes rhymeScheme;
     RhymeScheme rhymeFinder;
 
@@ -102,5 +105,24 @@ public class Poem
     public RhymeSchemes getRhymeScheme()
     {
         return rhymeScheme;
+    }
+
+    public String getTheme()
+    {
+        return theme;
+    }
+
+    public void setTheme(String theme)
+    {
+        this.theme = theme;
+    }
+
+    public String[] getWords()
+    {
+        List<String> words = new ArrayList<>();
+        for(int i = 0; i < getCleanText().length; i++){
+            words.addAll(Arrays.asList(getCleanText()[i]));
+        }
+        return words.toArray(new String[0]);
     }
 }
